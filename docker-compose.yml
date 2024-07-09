@@ -1,8 +1,13 @@
+version: "3.1"
+
 services:
   postgres:
     image: postgres:14.3-alpine
+    volumes:
+      - ./create.sql:/create.sql
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
       POSTGRES_DB: app
     ports:
-      - "5433:5432"
+      - "5432:5432"
